@@ -52,6 +52,7 @@
 ├── webpack.config.js
 └── yarn.lock
 
+# webpack
 ### swc
 > 为什么使用swc而不是esbuild
 
@@ -81,3 +82,13 @@ SWC 的处理：
 SWC 保留了更多的原始代码结构
 允许 webpack 的 ModulePrepack 正常工作
 能更好地配合 webpack 的优化流程
+
+### mini-css-extract-plugin
+mini-css-extract-plugin 主要解决了在 webpack 构建过程中 CSS 文件的处理问题
+- CSS 提取
+    - 默认情况下，webpack 会将 CSS 打包到 JS 文件中
+    - mini-css-extract-plugin 可以将 CSS 提取到单独的文件中，而不是打包在 JS 里
+- 性能优化
+    - 减少了 JS 文件体积
+    - 允许浏览器并行加载 JS 和 CSS，提高页面加载速度
+    - 支持 CSS 文件的缓存机制
