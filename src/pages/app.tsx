@@ -1,10 +1,12 @@
 import Button from "@/components/ui/button";
 import { useState } from "react";
 import clsx from "clsx";
+import { useAdaptiveLayout } from "@/hooks/useAdaptiveFontSize";
 
 const App = () => {
   const [state, setState] = useState({ num: 1 });
   console.log("app rendered");
+  const scale = useAdaptiveLayout();
 
   const handleClick = () => {
     setState({ num: 1 });
