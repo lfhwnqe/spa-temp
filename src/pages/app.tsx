@@ -1,9 +1,22 @@
+import Button from "@/components/ui/button";
+import { useState } from "react";
+
 const App = () => {
+  const [state, setState] = useState({ num: 1 });
+  console.log("app rendered");
+
+  const handleClick = () => {
+    setState({ num: 1 });
+  };
   return (
     <>
-      <h1 className="text-red-500 text-4xl font-bold">app</h1>
+      <h1 className="text-red-500 text-4xl font-bold">app:{state.num}</h1>
+      <div>
+        <Button>按钮</Button>
+      </div>
       <div className="flex items-center justify-center p-8">
         <button
+          onClick={handleClick}
           className="relative overflow-hidden group px-8 py-3 rounded-lg 
         bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700
         hover:from-blue-600 hover:via-blue-700 hover:to-blue-800
