@@ -1,16 +1,20 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
+import React from "react";
+import { createRoot } from "react-dom/client";
+import App from "./pages/app";
+import { BrowserRouter } from "react-router-dom";
 
-const container = document.getElementById('app');
+const container = document.getElementById("app");
 
 if (!container) {
-  throw new Error('Failed to find the root element');
+  throw new Error("Failed to find the root element");
 }
 
 const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
-    <div>React Hello </div>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
