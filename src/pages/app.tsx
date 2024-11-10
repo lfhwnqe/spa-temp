@@ -1,5 +1,6 @@
 import Button from "@/components/ui/button";
 import { useState } from "react";
+import clsx from "clsx";
 
 const App = () => {
   const [state, setState] = useState({ num: 1 });
@@ -8,13 +9,21 @@ const App = () => {
   const handleClick = () => {
     setState({ num: 1 });
   };
+  const commonStyles = {
+    font: "text-base font-medium font-['Roboto Mono'] leading-none",
+  };
   return (
     <>
       <h1 className="text-red-500 text-4xl font-bold">app:{state.num}</h1>
       <div>
         <Button>按钮</Button>
       </div>
-      <div className="flex items-center justify-center p-8">
+      <div
+        className={clsx(
+          commonStyles.font,
+          "flex items-center justify-center p-8"
+        )}
+      >
         <button
           onClick={handleClick}
           className="relative overflow-hidden group px-8 py-3 rounded-lg 
