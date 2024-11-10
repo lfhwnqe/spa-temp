@@ -1,5 +1,4 @@
-'use client';
-import { useState, useLayoutEffect, useCallback, useEffect } from 'react';
+import { useState, useLayoutEffect, useCallback, useEffect } from "react";
 
 interface AdaptiveLayoutOptions {
   designWidth?: number;
@@ -24,7 +23,7 @@ export function useAdaptiveLayout({
   const [isInitialized, setIsInitialized] = useState(false);
 
   const calculateScale = useCallback(() => {
-    if (typeof window === 'undefined') return 1;
+    if (typeof window === "undefined") return 1;
 
     const width = Math.min(Math.max(window.innerWidth, minWidth), maxWidth);
     const height = window.innerHeight;
@@ -38,17 +37,17 @@ export function useAdaptiveLayout({
 
   const updateLayout = useCallback(() => {
     const newScale = calculateScale();
-    if (typeof document !== 'undefined') {
+    if (typeof document !== "undefined") {
       const html = document.documentElement;
       const calculatedFontSize = basePixelSize * newScale;
       const finalFontSize = Math.max(calculatedFontSize, minFontSize);
       html.style.fontSize = `${finalFontSize}px`;
-      html.style.setProperty('--adaptive-font-size', `${finalFontSize}px`);
-      html.style.setProperty('--adaptive-scale', String(newScale));
-      html.style.height = '100%';
-      html.style.overflow = 'hidden';
-      document.body.style.height = '100%';
-      document.body.style.overflow = 'hidden';
+      html.style.setProperty("--adaptive-font-size", `${finalFontSize}px`);
+      html.style.setProperty("--adaptive-scale", String(newScale));
+      html.style.height = "100%";
+      html.style.overflow = "hidden";
+      document.body.style.height = "100%";
+      document.body.style.overflow = "hidden";
     }
     setScale(newScale);
   }, [calculateScale, basePixelSize, minFontSize]);
@@ -66,27 +65,27 @@ export function useAdaptiveLayout({
     setIsInitialized(true);
 
     // Add event listeners
-    if (typeof window !== 'undefined') {
-      window.addEventListener('resize', debouncedUpdateLayout);
-      window.addEventListener('orientationchange', debouncedUpdateLayout);
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", debouncedUpdateLayout);
+      window.addEventListener("orientationchange", debouncedUpdateLayout);
     }
 
     // Clean up
     return () => {
       clearTimeout(timeoutId);
-      if (typeof window !== 'undefined') {
-        window.removeEventListener('resize', debouncedUpdateLayout);
-        window.removeEventListener('orientationchange', debouncedUpdateLayout);
+      if (typeof window !== "undefined") {
+        window.removeEventListener("resize", debouncedUpdateLayout);
+        window.removeEventListener("orientationchange", debouncedUpdateLayout);
       }
     };
   }, [updateLayout, debounceDelay]);
 
   // Prevent FOUC
   useEffect(() => {
-    if (typeof document !== 'undefined' && !isInitialized) {
-      document.documentElement.style.setProperty('opacity', '0');
-    } else if (typeof document !== 'undefined') {
-      document.documentElement.style.removeProperty('opacity');
+    if (typeof document !== "undefined" && !isInitialized) {
+      document.documentElement.style.setProperty("opacity", "0");
+    } else if (typeof document !== "undefined") {
+      document.documentElement.style.removeProperty("opacity");
     }
   }, [isInitialized]);
 
