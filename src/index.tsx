@@ -1,4 +1,4 @@
-import React from "react";
+import './wdyr'
 import { createRoot } from "react-dom/client";
 import App from "@pages/app";
 import { BrowserRouter } from "react-router-dom";
@@ -13,9 +13,9 @@ if (!container) {
 const root = createRoot(container);
 
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+  // </React.StrictMode>
 );
