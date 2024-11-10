@@ -41,7 +41,26 @@ const webpackBaseConfig = {
     ],
   },
   resolve: {
-    extensions: [".js", ".ts", ".tsx", ".jsx", ".css"],
+    alias: {
+      '@': resolve('src/'),
+      '@components': resolve('src/components'),
+      '@hooks': resolve('src/hooks'),
+      '@pages': resolve('src/pages'),
+      '@layouts': resolve('src/layouts'),
+      '@assets': resolve('src/assets'),
+      '@states': resolve('src/states'),
+      '@service': resolve('src/service'),
+      '@utils': resolve('src/utils'),
+      '@lib': resolve('src/lib'),
+      '@constants': resolve('src/constants'),
+      '@connectors': resolve('src/connectors'),
+      '@abis': resolve('src/abis'),
+      '@types': resolve('src/types'),
+    },
+    extensions: ['.js', '.ts', '.tsx', '.jsx', '.css'],
+    fallback: {
+      // stream: require.resolve('stream-browserify'),
+    },
   },
   plugins: [
     new MiniCssExtractPlugin({
