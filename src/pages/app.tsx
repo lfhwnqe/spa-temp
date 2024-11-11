@@ -1,6 +1,10 @@
 import { createContext, useMemo, useState } from "react";
 import { useAdaptiveLayout } from "@/hooks/useAdaptiveFontSize/useAdaptiveFontSize";
-import { createTheme, StyledEngineProvider, ThemeProvider } from "@mui/material/styles";
+import {
+  createTheme,
+  StyledEngineProvider,
+  ThemeProvider,
+} from "@mui/material/styles";
 import { HelmetProvider } from "react-helmet-async";
 import { useRoutes } from "react-router-dom";
 import routes from "../routes";
@@ -8,7 +12,7 @@ const ColorModeContext = createContext({ toggleColorMode: () => {} });
 
 const App = () => {
   const [mode, setMode] = useState<"light" | "dark">("light");
-  const routing = useRoutes(routes)
+  const routing = useRoutes(routes);
   useAdaptiveLayout();
   const colorMode = useMemo(
     () => ({
@@ -28,6 +32,12 @@ const App = () => {
       }),
     [mode]
   );
+  // // 仅在开发环境中初始化 vConsole
+  // if (process.env.NODE_ENV === 'development') {
+  //   // eslint-disable-next-line @typescript-eslint/no-var-requires, import/no-extraneous-dependencies
+    // const VConsole = require('vconsole');
+    // new VConsole();
+  // }
   return (
     <>
       <StyledEngineProvider injectFirst>

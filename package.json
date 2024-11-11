@@ -24,7 +24,8 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-helmet-async": "^2.0.5",
-    "react-router-dom": "^6.28.0"
+    "react-router-dom": "^6.28.0",
+    "vconsole": "^3.15.1"
   },
   "devDependencies": {
     "@swc/core": "^1.7.40",
