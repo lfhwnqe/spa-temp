@@ -1,6 +1,7 @@
 import './wdyr';
 import { createRoot } from "react-dom/client";
 import App from "@pages/app";
+import Todo from '@pages/todo/todo'
 import { BrowserRouter } from "react-router-dom";
 import "./style.css";
 
@@ -15,7 +16,9 @@ const root = createRoot(container);
 root.render(
   // <React.StrictMode>
   <BrowserRouter>
-    <App />
+    {/* <App /> */}
+    <Todo />
+    
   </BrowserRouter>
   // </React.StrictMode>
 );
