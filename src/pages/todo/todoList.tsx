@@ -14,31 +14,34 @@ const TodoList: React.FC = () => {
     return true;
   });
 
-  const toggleTodo = useCallback((id: number): void => {
-    setTodos(draft => {
-      const todo = draft.find(t => t.id === id);
-      if (todo) {
-        todo.completed = !todo.completed;
-      }
-    });
-  }, [setTodos]);
+  const toggleTodo = useCallback(
+    (id: number): void => {
+      setTodos(draft => {
+        const todo = draft.find(t => t.id === id);
+        if (todo) {
+          todo.completed = !todo.completed;
+        }
+      });
+    },
+    [setTodos],
+  );
 
-  const deleteTodo = useCallback((id: number): void => {
-    setTodos(draft => {
-      const index = draft.findIndex(t => t.id === id);
-      if (index !== -1) {
-        draft.splice(index, 1);
-      }
-    });
-  }, [setTodos]);
+  const deleteTodo = useCallback(
+    (id: number): void => {
+      setTodos(draft => {
+        const index = draft.findIndex(t => t.id === id);
+        if (index !== -1) {
+          draft.splice(index, 1);
+        }
+      });
+    },
+    [setTodos],
+  );
 
   return (
     <ul className="space-y-2">
       {filteredTodos.map((todo: Todo) => (
-        <li 
-          key={todo.id}
-          className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
-        >
+        <li key={todo.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
           <div className="flex items-center gap-2">
             <input
               type="checkbox"
@@ -46,11 +49,7 @@ const TodoList: React.FC = () => {
               onChange={() => toggleTodo(todo.id)}
               className="w-4 h-4 rounded border-gray-300 focus:ring-blue-500"
             />
-            <span 
-              className={`${
-                todo.completed ? 'line-through text-gray-500' : 'text-gray-800'
-              }`}
-            >
+            <span className={`${todo.completed ? 'line-through text-gray-500' : 'text-gray-800'}`}>
               {todo.text}
             </span>
           </div>

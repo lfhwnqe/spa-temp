@@ -11,12 +11,7 @@ interface FilterButtonProps {
   children: React.ReactNode;
 }
 
-const FilterButton: React.FC<FilterButtonProps> = ({
-  type,
-  currentFilter,
-  onClick,
-  children
-}) => (
+const FilterButton: React.FC<FilterButtonProps> = ({ type, currentFilter, onClick, children }) => (
   <button
     onClick={() => onClick(type)}
     className={`px-3 py-1 rounded-lg ${
@@ -32,31 +27,22 @@ const FilterButton: React.FC<FilterButtonProps> = ({
 const TodoFilter: React.FC = () => {
   const [filter, setFilter] = useAtom(filterAtom);
 
-  const handleFilterChange = useCallback((newFilter: FilterType): void => {
-    setFilter(newFilter);
-  }, [setFilter]);
+  const handleFilterChange = useCallback(
+    (newFilter: FilterType): void => {
+      setFilter(newFilter);
+    },
+    [setFilter],
+  );
 
   return (
     <div className="flex justify-center gap-2 mb-4">
-      <FilterButton
-        type="all"
-        currentFilter={filter}
-        onClick={handleFilterChange}
-      >
+      <FilterButton type="all" currentFilter={filter} onClick={handleFilterChange}>
         All
       </FilterButton>
-      <FilterButton
-        type="active"
-        currentFilter={filter}
-        onClick={handleFilterChange}
-      >
+      <FilterButton type="active" currentFilter={filter} onClick={handleFilterChange}>
         Active
       </FilterButton>
-      <FilterButton
-        type="completed"
-        currentFilter={filter}
-        onClick={handleFilterChange}
-      >
+      <FilterButton type="completed" currentFilter={filter} onClick={handleFilterChange}>
         Completed
       </FilterButton>
     </div>

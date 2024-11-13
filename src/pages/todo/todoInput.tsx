@@ -1,10 +1,10 @@
 // todoInput.tsx
 import React, { useState, FormEvent } from 'react';
-import { useAtom } from 'jotai';
+import { useSetAtom } from 'jotai';
 import { todosAtom } from './atoms';
 
 const TodoInput: React.FC = () => {
-  const [todos, setTodos] = useAtom(todosAtom);
+  const setTodos = useSetAtom(todosAtom);
   const [input, setInput] = useState<string>('');
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
@@ -15,10 +15,10 @@ const TodoInput: React.FC = () => {
       draft.push({
         id: Date.now(),
         text: input.trim(),
-        completed: false
+        completed: false,
       });
     });
-    
+
     setInput('');
   };
 
@@ -28,7 +28,7 @@ const TodoInput: React.FC = () => {
         <input
           type="text"
           value={input}
-          onChange={(e) => setInput(e.target.value)}
+          onChange={e => setInput(e.target.value)}
           className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
           placeholder="Add a new todo..."
         />
