@@ -4,7 +4,10 @@ const { resolve } = require("path");
 const _mode = argv.mode || "development";
 const _mergeConfig = require(`./config/webpack.${_mode}.js`);
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 const _modeflag = _mode === 'production' ? true : false;
+
 const webpackBaseConfig = {
   entry: {
     main: resolve("src/index.tsx"),
@@ -63,6 +66,7 @@ const webpackBaseConfig = {
     },
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: _modeflag
         ? "styles/[name].[contenthash:5].css"

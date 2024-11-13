@@ -53,7 +53,10 @@
 └── yarn.lock
 
 # todo
-- why did you render无效
+- 打包配置
+- 单元测试
+- e2e
+- ui测试
 # webpack
 ### swc
 > 为什么使用swc而不是esbuild
