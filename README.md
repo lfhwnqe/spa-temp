@@ -53,7 +53,6 @@
 └── yarn.lock
 
 # todo
-- 打包配置
 - 单元测试
 - e2e
 - ui测试
