@@ -10,7 +10,8 @@
     "client:prod": "webpack --mode production",
     "lint:fix": "tsc --noEmit & eslint ./src --ext .ts,.tsx --fix",
     "lint": "eslint . --ext .ts,.tsx",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test:uidiff": "backstop test"
   },
   "keywords": [],
   "author": "",
@@ -38,6 +39,7 @@
     "@typescript-eslint/parser": "^7.0.0",
     "@typescript-eslint/typescript-estree": "^8.12.2",
     "@welldone-software/why-did-you-render": "^8.0.3",
+    "backstopjs": "^6.3.25",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^7.1.2",
     "css-minimizer-webpack-plugin": "^7.0.0",

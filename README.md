@@ -95,4 +95,56 @@ mini-css-extract-plugin 主要解决了在 webpack 构建过程中 CSS 文件的
 - 性能优化
     - 减少了 JS 文件体积
     - 允许浏览器并行加载 JS 和 CSS，提高页面加载速度
-    - 支持 CSS 文件的缓存机制
+    - 支持 CSS **文件的缓存机制**
+
+# UI测试
+使用backstopjs实现ui测试
+
+初始化
+```shell
+npx backstop init 
+```
+
+配置 backstop.json
+
+测试页面配置
+```json
+"scenarios": [
+    {
+      //测试标签，对应需要测试的页面
+      "label": "firstPage",
+      // cookie地址
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",  
+      // 测试地址
+      "url": "https://garris.github.io/BackstopJS/",  
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    }
+  ],
+```
+
+设计稿原图配置
+```json
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "engine_scripts": "backstop_data/engine_scripts",
+    "html_report": "backstop_data/html_report",
+    "ci_report": "backstop_data/ci_report",
+    "referenceUrl": "https://your-domain.com/reference-images/"  // 对应远程图片源
+  }
+```
+
+测试设计稿地址：backstop_data/bitmaps_reference
