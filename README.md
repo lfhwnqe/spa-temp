@@ -99,6 +99,9 @@ mini-css-extract-plugin 主要解决了在 webpack 构建过程中 CSS 文件的
 
 # UI测试
 使用backstopjs实现ui测试
+```shell
+yarn test:uidiff
+```
 
 初始化
 ```shell
@@ -148,3 +151,17 @@ npx backstop init
 ```
 
 测试设计稿地址：backstop_data/bitmaps_reference
+
+# 单元测试
+
+测试看板，可以指定单个测试并执行，开发使用
+```shell
+yarn test:ui
+```
+
+执行单元测试，生成测试数据报表
+```shell
+yarn test
+```
+数据报表目录：docs/jest-stare/index.html
+

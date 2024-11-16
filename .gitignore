@@ -3,3 +3,5 @@
 .husky/_
 backstop_data
 docs/backstop
+docs/jest-coverage
+docs/jest-stare
