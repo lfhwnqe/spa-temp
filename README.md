@@ -165,3 +165,13 @@ yarn test
 ```
 数据报表目录：docs/jest-stare/index.html
 
+# e2e测试
+使用cypress实现现代化e2e测试
+
+执行命令会自动打开浏览器，
+```shell
+yarn test:e2e
+```
+![](docs/cypress/example.jpg)
+
+
