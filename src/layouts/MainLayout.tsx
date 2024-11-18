@@ -1,11 +1,15 @@
+import Header from '@/components/common/Heaer';
 import { memo } from 'react';
 import { Outlet } from 'react-router-dom';
 
 const MainLayout = () => {
   return (
-    <main>
-      <Outlet />
-    </main>
+    <>
+      <Header />
+      <main>
+        <Outlet />
+      </main>
+    </>
   );
 };
 // MainLayout.whyDidYouRender = true;
